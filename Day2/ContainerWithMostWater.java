@@ -1,0 +1,20 @@
+//leetcode ques no 11
+https://leetcode.com/problems/container-with-most-water/
+
+class Solution {
+    public int maxArea(int[] height) {
+        int maxarea = 0;
+        int left = 0;
+        int right = height.length-1;
+        while(left<right){
+            maxarea = Math.max(maxarea,(right-left)*Math.min(height[left],height[right]));
+            if(height[left]<height[right]){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return maxarea;    
+    }
+}
